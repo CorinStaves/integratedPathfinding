@@ -3,13 +3,13 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>ch.sbb</groupId>
-	<artifactId>matsim-sbb-extensions</artifactId>
-	<version>12.14</version>
+	<groupId>de.tum.bgu.msm.integratedPathfinding</groupId>
+	<artifactId>integratedPathfinding</artifactId>
+	<version>1.0</version>
 
 
-	<name>MATSim JIBE</name>
-	<description>All MATSim-related scripts for JIBE</description>
+	<name>Integrated Pathfinding</name>
+	<description>Discrete choice estimation with integrated pathfinding</description>
 	<properties>
 		<matsim.version>14.0</matsim.version>
 		<geotools.version>24.2</geotools.version>
@@ -215,17 +215,12 @@
 		</plugins>
 	</build>
 
-	<distributionManagement>
-    <repository>
-        <id>bintray-schweizerischebundesbahnen-simba.mvn</id>
-        <name>schweizerischebundesbahnen-simba.mvn</name>
-        <url>https://api.bintray.com/maven/schweizerischebundesbahnen/simba.mvn/matsim-sbb-extensions/;publish=1</url>
-    </repository>
-		<snapshotRepository>
-			<id>oss-jfrog-artifactory</id>
-			<name>artifactory-snapshots</name>
-			<url>http://oss.jfrog.org/oss-snapshot-local</url>
-		</snapshotRepository>
-	</distributionManagement>
+<!--	<distributionManagement>-->
+<!--    <repository>-->
+<!--        <id>github</id>-->
+<!--        <name>GitHub Packages</name>-->
+<!--        <url>https://maven.pkg.github.com/jibeproject/integratedPathfinding</url>-->
+<!--    </repository>-->
+<!--	</distributionManagement>-->
 
 </project>
