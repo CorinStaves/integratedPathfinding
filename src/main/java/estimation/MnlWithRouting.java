@@ -4,11 +4,13 @@ import estimation.specifications.AbstractModelSpecification;
 import gis.GpkgReader;
 import io.DiaryReader;
 import io.ioUtils;
-import network.NetworkUtils2;
 import org.apache.log4j.Logger;
 import org.locationtech.jts.geom.Geometry;
 import org.matsim.api.core.v01.TransportMode;
 import org.matsim.api.core.v01.network.Network;
+import org.matsim.core.network.NetworkUtils;
+import org.matsim.core.network.algorithms.TransportModeNetworkFilter;
+import org.matsim.core.network.io.MatsimNetworkReader;
 import org.matsim.core.router.util.TravelTime;
 import org.matsim.vehicles.Vehicle;
 import org.opengis.referencing.FactoryException;
@@ -111,9 +113,9 @@ public class MnlWithRouting {
         if(computeRouteData) {
 
             // Read network
-            Network network = NetworkUtils2.readFullNetwork();
-            networkBike = NetworkUtils2.extractModeSpecificNetwork(network, TransportMode.bike);
-            networkWalk = NetworkUtils2.extractModeSpecificNetwork(network, TransportMode.walk);
+            Network network = readFullNetwork();
+            networkBike = extractModeSpecificNetwork(network, TransportMode.bike);
+            networkWalk = extractModeSpecificNetwork(network, TransportMode.walk);
 
             // Travel Time
             Bicycle bicycle = new Bicycle(null);
@@ -191,5 +193,21 @@ public class MnlWithRouting {
 
             out.close();
         }
+    }
+
+    public static Network readFullNetwork() {
+        // Read network
+        logger.info("Reading MATSim network...");
+        String networkPath = Resources.instance.getString(Properties.MATSIM_ROAD_NETWORK);
+        Network fullNetwork = NetworkUtils.createNetwork();
+        new MatsimNetworkReader(fullNetwork).readFile(networkPath);
+        return fullNetwork;
+    }
+
+    // Extracts mode-specific network  (e.g. walk network, car network, cycle network)
+    public static Network extractModeSpecificNetwork(Network network, String transportMode) {
+        Network modeSpecificNetwork = NetworkUtils.createNetwork();
+        new TransportModeNetworkFilter(network).filter(modeSpecificNetwork, Collections.singleton(transportMode));
+        return modeSpecificNetwork;
     }
 }

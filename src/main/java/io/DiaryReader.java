@@ -25,10 +25,6 @@ public class DiaryReader {
 
     private final static Logger logger = Logger.getLogger(DiaryReader.class);
 
-    public static Set<Trip> readTrips(Geometry geometry) throws IOException {
-        return readTrips(geometry,null);
-    }
-
     public static Set<Trip> readTrips(Geometry geometry, ReadFilter tester) throws IOException {
         Set<Trip> trips = new LinkedHashSet<>();
         String recString;
@@ -227,7 +223,7 @@ public class DiaryReader {
         };
     }
 
-    // todo: generalise to also work for melbourne
+    // todo: generalise
     private static Purpose getPurpose(String purpose) {
         return switch (purpose) {
             case "Home" -> HOME;

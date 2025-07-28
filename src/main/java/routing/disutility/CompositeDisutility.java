@@ -18,9 +18,9 @@ import java.util.List;
  * Custom walk and bicycle disutility for JIBE
  * based on BicycleTravelDisutility by Dominik Ziemke
  */
-public class JibeDisutility4 implements TravelDisutility {
+public class CompositeDisutility implements TravelDisutility {
 
-    private final static Logger logger = Logger.getLogger(JibeDisutility4.class);
+    private final static Logger logger = Logger.getLogger(CompositeDisutility.class);
     private final String mode;
     private final TravelTime timeCalculator;
     private final Network network;
@@ -31,8 +31,8 @@ public class JibeDisutility4 implements TravelDisutility {
     private final double[] disutilities = new double[Id.getNumberOfIds(Link.class)];
 
     // Custom parameters
-    public JibeDisutility4(Network network, Vehicle vehicle, String mode, TravelTime tt,
-                           List<RouteAttribute> attributes, double[] weights) {
+    public CompositeDisutility(Network network, Vehicle vehicle, String mode, TravelTime tt,
+                               List<RouteAttribute> attributes, double[] weights) {
 
         if(!mode.equals(TransportMode.bike) && !mode.equals(TransportMode.walk)) {
             throw new RuntimeException("Mode " + mode + " not supported for JIBE disutility.");

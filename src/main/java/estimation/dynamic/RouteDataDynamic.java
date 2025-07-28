@@ -21,7 +21,7 @@ import org.matsim.vehicles.Vehicle;
 import org.opengis.feature.simple.SimpleFeature;
 import resources.Properties;
 import resources.Resources;
-import routing.disutility.JibeDisutility4;
+import routing.disutility.CompositeDisutility;
 import trip.Place;
 import trip.Trip;
 
@@ -244,7 +244,7 @@ public class RouteDataDynamic implements RouteData, DynamicComponent {
                     weights[i] = 0;
                 }
             }
-            disutilitities[k] = new JibeDisutility4(network, vehicle, mode, tt, baseAttributes, weights);
+            disutilitities[k] = new CompositeDisutility(network, vehicle, mode, tt, baseAttributes, weights);
         }
 
         // Setup multithreaded...

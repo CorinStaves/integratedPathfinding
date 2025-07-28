@@ -3,31 +3,16 @@ package resources;
 public class Properties {
 
     // GIS Files (must be in .gpkg format)
-    public static final String REGION_BOUNDARY = "region.boundary";
     public static final String NETWORK_BOUNDARY = "network.boundary";
     public static final String NETWORK_LINKS = "network.links";
-    public static final String NETWORK_NODES = "network.nodes";
-    public static final String COORDINATE_SYSTEM = "coordinate.system";
 
     // MATSim data (must be in .xml format)
     public static final String MATSIM_ROAD_NETWORK = "matsim.road.network";
-    public static final String MATSIM_TRANSIT_NETWORK = "matsim.transit.network";
-    public static final String MATSIM_TRANSIT_SCHEDULE = "matsim.transit.schedule";
-
-    public static final String MATSIM_DEMAND_CONFIG = "matsim.demand.config";
-    public static final String MATSIM_DEMAND_SCALE_FACTOR = "matsim.demand.scale.factor";
-    public static final String MATSIM_DEMAND_VEHICLES = "matsim.demand.vehicles";
-    public static final String MATSIM_DEMAND_PLANS = "matsim.demand.plans";
-    public static final String MATSIM_DEMAND_OUTPUT_EVENTS = "matsim.demand.output.events";
-    public static final String MATSIM_DEMAND_OUTPUT_NETWORK = "matsim.demand.output.network";
-    public static final String MATSIM_DEMAND_OUTPUT_VEHICLES = "matsim.demand.output.vehicles";
-    public static final String MATSIM_DEMAND_OUTPUT_SCALE_FACTOR = "matsim.demand.output.scale.factor";
 
     // Other properties
     public static final String NUMBER_OF_THREADS = "number.of.threads";
     public static final String MAX_BIKE_SPEED = "max.bike.speed";
-    public static final String DECAY_PERCENTILE = "decay.percentile";
-    
+
     // Survey data attribute names
     public static final String DIARY_FILE = "diary.file";
     public static final String DIARY_DELIMITER = "diary.delimiter";
